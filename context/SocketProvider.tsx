@@ -19,10 +19,15 @@ const [socket, setSocket] = useState<Socket | null>(null);
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    // Initialize socket connection
-    const newSocket = io(process.env.NEXT_PUBLIC_API_URL || "http://localhost:1000", {
+    // Determine socket base URL. Prefer NEXT_PUBLIC_API_URL, then API_URL fallback.
+    const fallback = API_URL ? API_URL.replace(/\/api$/, "") : "https://camctax-server.onrender.com";
+    const socketBase = process.env.NEXT_PUBLIC_API_URL || fallback;
+
+    // Initialize socket connection with credentials so cookies are sent.
+    const newSocket = io(socketBase, {
       transports: ["websocket"],
       reconnection: true,
+      withCredentials: true,
     });
 
     newSocket.on("connect", () => {
