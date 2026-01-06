@@ -96,7 +96,7 @@ export default function HomeHero() {
               >
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto text-lg h-14 px-20! rounded-xl shadow-sm shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 bg-accent hover:bg-accent/90 text-accent-foreground font-bold border border-white/20"
+                  className="w-full sm:w-auto text-lg h-14 px-20! rounded-xl shadow-sm shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 transition-all hover:-translate-y-1 bg-primaryColor hover:bg-primaryColor/90 text-accent-foreground font-bold border border-white/20"
                 >
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5" />

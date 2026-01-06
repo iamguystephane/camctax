@@ -37,7 +37,7 @@ export default function Features() {
               className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 flex flex-col justify-center items-center md:items-start"
             >
               
-                <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-6 text-primary">
+                <div className="w-14 h-14 bg-primaryColor rounded-xl flex items-center justify-center mb-6 text-primary">
                   <feature.icon className="w-7 h-7 text-green-500" />
                 </div>
               

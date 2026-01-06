@@ -53,7 +53,6 @@ export default function Nav() {
   const navLinks = [
     ...BASE_NAV_LINKS,
     ...(getDashboardLink() ? [getDashboardLink()!] : []),
-    ...(!isLoggedIn ? [{ label: "Login", href: "/auth" }] : []),
   ];
 
    const { setOnboardingData } = useStates();
@@ -96,13 +95,13 @@ export default function Nav() {
                   href={link.href}
                   className={`text-sm font-medium py-2 transition-colors relative ${
                     active
-                      ? "text-green-500 font-semibold"
-                      : "text-muted-foreground hover:text-primary"
+                      ? "text-green-700 font-semibold"
+                      : "text-muted-foreground hover:text-green-700"
                   }`}
                 >
                   {link.label}
                   {active && (
-                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-green-500 rounded-full w-7 mx-auto" />
+                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-green-700 rounded-full w-7 mx-auto" />
                   )}
                 </Link>
               );
@@ -120,7 +119,7 @@ export default function Nav() {
               </Button>
             ) : (
               <Link href="/start" onClick={handleLeadSource}>
-                <Button size="sm" className="bg-primary hover:bg-primary/90">
+                <Button size="sm" className="bg-black text-white rounded-full">
                   Get Started
                 </Button>
               </Link>
@@ -182,7 +181,7 @@ export default function Nav() {
                   onClick={() => setOpen(false)}
                   className={`text-base font-medium transition ${
                     active
-                      ? "text-primary font-semibold"
+                      ? "text-green-700 font-semibold"
                       : "text-slate-700 hover:text-primary"
                   }`}
                 >
@@ -202,7 +201,7 @@ export default function Nav() {
               </Button>
             ) : (
               <Link href="/start" onClick={() => setOpen(false)}>
-                <Button className="w-full bg-primary hover:bg-primary/90" onClick={handleLeadSource}>
+                <Button className="w-full rounded-full bg-black text-white" onClick={handleLeadSource}>
                   Get Started
                 </Button>
               </Link>

@@ -1,3 +1,3 @@
 
 
-export const API_URL = "http://localhost:1000/api";
+export const API_URL = "https://camctax-server.onrender.com/api";

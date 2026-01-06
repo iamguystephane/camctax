@@ -11,7 +11,7 @@ export default function WizardHeader() {
           Exit
         </Button>
       </Link>
-      <div className="font-display font-bold text-lg text-primary">
+      <div className="font-display font-bold text-lg">
         Onboarding
       </div>
     </header>

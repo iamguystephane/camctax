@@ -31,7 +31,7 @@ export default function WizardNavigation({
         Back
       </Button>
 
-      <Button onClick={onNext} disabled={loading}>
+      <Button onClick={onNext} disabled={loading} className="">
         {loading ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />

@@ -21,19 +21,14 @@ const OPTIONS = [
     description: "File your monthly and quarterly taxes.",
   },
   {
-    value: "tax_assistance",
+    value: "guidance",
     title: "Tax Assistance",
     description: "Technical advice on paying your taxes in Cameroon, and understanding tax regimes.",
   },
   {
-    value: "merchant_accounts",
+    value: "merchant_account",
     title: "Bank Merchants",
     description: "Get your business ready for bank/merchant account approval.",
-  },
-  {
-    value: "other",
-    title: "Other (General guidance)",
-    description: "I'm not sure, I need general guidance.",
   },
 ] as const;
 
