@@ -236,13 +236,13 @@ export default function Login() {
             </Link>
             </div>
           </form>
-          <div className="flex justify-center pt-1.5">
+          {/* <div className="flex justify-center pt-1.5">
             <Link
             href="/admin/dashboard"
             className="block text-center text-2xl text-primary hover:text-blue">
               Admin Dasboard Straight<ChevronRight className="w-4 h-4 inline"/>
             </Link>
-          </div>
+          </div> */}
         </motion.div>
       </motion.div>
 
