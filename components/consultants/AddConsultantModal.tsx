@@ -17,19 +17,9 @@ import {
   Plus,
 } from "lucide-react";
 import ConsultantForm from "./ConsultantForm";
-
+import { NewConsultant, CoverageArea } from "./types";
 import { API_URL } from "@/API";
 import { useToast } from "@/hooks/useToast";
-
-interface NewConsultant {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  phone: string;
-  assignedCities: string[];
-  status: boolean; // active
-}
 
 interface AddConsultantModalProps {
   open: boolean;
@@ -73,12 +63,9 @@ export default function AddConsultantModal({
 
   const handleInputChange = (
     field: keyof NewConsultant,
-    value: string | boolean | string[]
+    value: string | number | boolean | string[] | CoverageArea[]
   ) => {
-    setNewConsultant({
-      ...newConsultant,
-      [field]: value,
-    } as any);
+    setNewConsultant((prev) => ({ ...prev, [field]: value } as NewConsultant));
   };
 
   const toggleCity = (city: string) => {

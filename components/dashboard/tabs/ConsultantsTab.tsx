@@ -9,31 +9,10 @@ import ConsultantsCoverage from "../../consultants/ConsultantsCoverage";
 import ConsultantsGrid from "../../consultants/ConsultantsGrid";
 import AddConsultantModal from "../../consultants/AddConsultantModal";
 import EditConsultantModal from "../../consultants/EditConsultantModal";
+import { CoverageArea, NewConsultant, Consultant as ConsultantType } from "../../consultants/types";
 
 interface ConsultantsTabProps {
   searchQuery: string;
-}
-
-interface CoverageArea {
-  region: string;
-  cities: string[];
-}
-
-interface Consultant {
-  id: string;
-  name: string;
-  specialty: string;
-  email: string;
-  phone: string;
-  rate: string;
-  status: "available" | "busy" | "offline";
-  rating: number;
-  projects: number;
-  city?: string;
-  coverage?: string[];
-  coverageAreas?: CoverageArea[];
-  hourlyRate?: number;
-  isActive?: boolean;
 }
 
 type APIUser = {
@@ -49,25 +28,13 @@ type APIUser = {
   isActive?: boolean;
 };
 
-interface NewConsultant {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  phone: string;
-  assignedCities: string[];
-  coverageAreas?: CoverageArea[];
-  status: boolean;
-  hourlyRate?: number;
-}
-
 export default function ConsultantsTab({ searchQuery }: ConsultantsTabProps) {
-  const [consultants, setConsultants] = useState<Consultant[]>([]);
+  const [consultants, setConsultants] = useState<ConsultantType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [openModal, setOpenModal] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
-  const [selectedConsultant, setSelectedConsultant] = useState<Consultant | null>(null);
+  const [selectedConsultant, setSelectedConsultant] = useState<ConsultantType | null>(null);
 
   useEffect(() => {
     const fetchConsultants = async () => {
@@ -123,16 +90,16 @@ export default function ConsultantsTab({ searchQuery }: ConsultantsTabProps) {
     hourlyRate: 50000,
   });
 
-  const handleAddConsultant = (consultantData: Consultant) => {
+  const handleAddConsultant = (consultantData: ConsultantType) => {
     setConsultants((prev) => [consultantData, ...prev]);
   };
 
-  const handleEditConsultant = (consultant: Consultant) => {
+  const handleEditConsultant = (consultant: ConsultantType) => {
     setSelectedConsultant(consultant);
     setEditModalOpen(true);
   };
 
-  const handleUpdateConsultant = (updatedConsultant: Consultant) => {
+  const handleUpdateConsultant = (updatedConsultant: ConsultantType) => {
     setConsultants((prev) =>
       prev.map((c) => (c.id === updatedConsultant.id ? updatedConsultant : c))
     );

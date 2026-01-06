@@ -61,22 +61,7 @@ const CAMEROON_REGIONS: Record<string, { label: string; cities: string[] }> = {
   },
 };
 
-interface CoverageArea {
-  region: string;
-  cities: string[];
-}
-
-interface NewConsultant {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  phone: string;
-  assignedCities: string[];
-  coverageAreas?: CoverageArea[];
-  status: boolean;
-  hourlyRate?: number;
-}
+import { CoverageArea, NewConsultant } from "./types";
 
 interface ConsultantFormProps {
   newConsultant: NewConsultant;
@@ -85,7 +70,7 @@ interface ConsultantFormProps {
   copied: boolean;
   onInputChange: (
     field: keyof NewConsultant,
-    value: string | boolean | string[] | CoverageArea[] | number
+    value: string | number | boolean | string[] | CoverageArea[]
   ) => void;
   onPhoneChange: (value: string) => void;
   onGeneratePassword: () => void;
